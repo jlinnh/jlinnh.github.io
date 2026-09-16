@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Elm Diner</title>
+</head>
+<body>
+
+<!--ulo -->
+
+<header>
+    <h1>Elm Diner</h1>
+
+    <nav aria-label="Main navigation">
+        <ul>
+            <li> <a href="#findUs"> Find Us</a></li>
+            <li><a href="#menuPreview">Menu</a></li>
+            <li><a href="#hoursLocation">Hours</a></li>
+            <li><a class="book-button" href="#reservationForm">Book</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<!-- we need a hero -->
+
+<section id="hero">
+    <div class="hero-content">
+        <h2>Elm<br><span>Diner</span></h2>
+        <p>Where the forests meets the city.<br>
+        Book your table and let us take care of the rest.</p>
+
+        <div class="hero-buttons">
+            <a href="#reservationForm" class="reserve-button">Reserve a Table</a>
+            <a href="#menuPreview" class="menu-button">View Menu</a>
+        </div>
+    </div>
+</section>
+
+<!-- menu = -->
+
+<section id="menuPreview">
+    <h2 id="whatWeOffer">What We Offer</h2>
+
+    <article id="starters">
+        <h3 >Starters</h3>
+        <ul>
+            <li>Pesto Garlic Bread</li>
+            <li>Spinach & Cheese Bites</li>
+            <li>Avocado Spring Rolls</li>
+        </ul>
+    </article>
+
+    <article id="mainCourses">
+        <h3>Main Courses</h3>
+        <ul>
+            <li>Spinach Pizza</li>
+            <li>Basil Chicken Parm</li>
+            <li>Pesto Pasta</li>
+        </ul>
+    </article>
+
+    <article id="desserts">
+        <h3 >Desserts</h3>
+        <ul>
+            <li>Chocolate Crème Brûlée</li>
+            <li>Tiramisu</li>
+            <li>Avocado Ice Cream</li>
+        </ul>
+    </article>
+</section>
+
+<!-- hours and location -->
+
+<section id="hoursLocation">
+    <h2>Hours &amp; Location</h2>
+
+    <article>
+        <h3>Operating Hours</h3>
+        <table border="1" class="hours-table">
+            <caption>Weekly Lunch and Dinner Service Hours</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Lunch Hours</th>
+                    <th scope="col">Dinner Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Monday</th>
+                    <td>Closed</td>
+                    <td>5:00 PM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tuesday</th>
+                    <td>11:30 AM - 2:00 PM</td>
+                    <td>5:00 PM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">Wednesday</th>
+                    <td>11:30 AM - 2:00 PM</td>
+                    <td>5:00 PM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">Thursday</th>
+                    <td>11:30 AM - 2:00 PM</td>
+                    <td>5:00 PM - 10:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">Friday</th>
+                    <td>11:30 AM - 2:30 PM</td>
+                    <td>5:00 PM - 11:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">Saturday</th>
+                    <td>11:00 AM - 3:00 PM</td>
+                    <td>5:00 PM - 11:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sunday</th>
+                    <td>11:00 AM - 3:00 PM</td>
+                    <td>5:00 PM - 8:00 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+<!-- reservation form -->
+
+<section id="reservationForm">
+    <h2>Reserve Your Table</h2>
+    <p>Please fill out the form below. Fields marked as required must be completed.</p>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            <p>
+                Full Name<br>
+                <input type="text" id="name" name="name" placeholder="e.g. John Cena" required>
+            </p>
+
+            <p>
+                Email Address<br>
+                <input type="email" id="email" name="email" placeholder="e.g. john@cena.com" required>
+            </p>
+
+            <p>
+                Phone Number<br>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. 87000" pattern="[0-9\-\+\s]{7,15}" required>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Reservation Details</legend>
+
+            <p>
+                Date of Reservation<br>
+                <input type="date" id="resDate" name="resDate" required>
+            </p>
+
+            <p>
+                Time Slot<br>
+                <input type="time" id="resTime" name="resTime" required>
+            </p>
+
+            <p>
+                Number of Guests<br>
+                <input type="number" id="guests" name="guests" min="1" max="15" value="2" required>
+            </p>
+
+            <fieldset>
+                <legend>Seating Preference</legend>
+
+                <p>
+                    <input type="radio" id="indoors" name="seating" value="indoors" checked>
+                    Indoor
+                </p>
+
+                <p>
+                    <input type="radio" id="outdoors" name="seating" value="outdoors">
+                    Patio
+                </p>
+
+                <p>
+                    <input type="radio" id="bar" name="seating" value="bar">
+                    Bar
+                </p>
+            </fieldset>
+
+            <p>
+                Occasion<br>
+                <select id="occasion" name="occasion">
+                    <option value="">-- Select an occasion (optional) --</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="business">Business</option>
+                    <option value="casual">Casual</option>
+                </select>
+            </p>
+
+            <p>
+                Special Requests<br>
+                <textarea id="specialRequests" name="specialRequests" rows="4" cols="40" placeholder="Allergies, high chair needed, accessibility requirements, etc."></textarea>
+            </p>
+        </fieldset>
+
+        <fieldset id="policy">
+            <legend>Reservation Policy</legend>
+            <p>
+                Reservations are held for 15 minutes past the booked time. Cancellations
+                must be made at least 2 hours in advance to avoid a cancellation fee.
+            </p>
+            <p>
+                <input type="checkbox" id="agreePolicy" name="agreePolicy" value="agreed" required>
+                I have read and agree to the reservation policy
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Submit Reservation" onclick="booking(); return false;">
+            <input type="reset" value="Clear Form">
+        </p>
+
+    </form>
+</section>
+
+<!--  info  -->
+
+    <article id="findUs">
+        <h3>Find Us</h3>
+        <address>
+            Elm Diner<br>
+            221, Karag Beach<br>
+            SJC, Philippines<br>
+            Phone: <a href="tel:+639175555555" ">+63 917 555 5555</a><br>
+            Email: <a href="mailto:inoncillo.m.johnlouie@gmail.com" >telmdiner@elm.diner</a>
+        </address>
+    </article>
+</section>
+
+</main>
+
+<!-- footer -->
+
+<footer>
+    <p>&copy; 2026 The Elm Diner. All rights reserved.</p>
+    <nav aria-label="Footer navigation">
+        <ul>
+            
+            <li><a href="#reservationForm">Back to Reservation</a></li>
+            <li><a href="#hoursLocation">Hours &amp; Location</a></li>
+            <li><a href="#menuPreview">Best Sellers</a></li>
+        </ul>
+    </nav>
+</footer>
+
+
+<script>
+    function booking(){
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let resDate = document.getElementById("resDate").value;
+        let resTime = document.getElementById("resTime").value;
+        let guests = document.getElementById("guests").value;
+        let seating = document.querySelector('input[name="seating"]:checked').value;
+
+        if (name && email && phone && resDate && resTime && guests && seating) {
+            alert("Thank you for your reservation, " + name + "! We look forward to serving you! \nYour Reservation Details:\nDate: " + resDate + "\nTime: " + resTime + "\nGuests: " + guests + "\nSeating: " + seating + "\n\nYou will be receiving a confirmation email at " + email + " shortly.");
+        } else {
+            alert("Please fill out all required fields before submitting your reservation.");
+        }
+    }
+</script>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+section{
+    scroll-margin-top: 50px;
+}
+  body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #090909;
+    color: #fff;
+}
+
+header,
+footer {
+    background-color: #090909;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px 0 16px;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+header nav ul li {
+    display: block;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header nav ul li a:not(.book-button) {
+    opacity: 0.6;
+}
+
+header nav ul li a.book-button {
+    display: inline-block;
+    background-color: #055e13;
+    color: #fff;
+    padding: 10px 25px;
+    letter-spacing: 2px;
+    opacity: 1;
+}
+
+#hero {
+    min-height: 620px;
+    padding: 70px 35px 55px;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.78)
+        ),
+        url("hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+#hero h2 {
+    margin: 0;
+    color: #f5f1e8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(70px, 12vw, 150px);
+    font-weight: 700;
+    line-height: 0.78;
+    letter-spacing: -6px;
+}
+
+#hero h2 span {
+    color: #055e13;
+}
+
+#hero p {
+    color: #d0d0d0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    max-width: 650px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+}
+
+.hero-buttons a {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#whatWeOffer {
+    color:#104518
+}
+
+#starters,
+#mainCourses,
+#desserts {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin-right: 2%;
+    padding: 10px;
+    border: 1px solid #252525;
+    background-color: #090909;
+    box-sizing: border-box;
+}
+#starters h3, #mainCourses h3, #desserts h3 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #055e13;
+}
+
+
+#starters ul,
+#mainCourses ul,
+#desserts ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+#starters li,
+#mainCourses li,
+#desserts li {
+    padding: 5px 0;
+}
+#starters li:last-child, #mainCourses li:last-child, #desserts li:last-child {
+    border-bottom: none;
+}
+
+#hoursLocation h2,
+#hoursLocation h3 {
+    color: #055e13;
+    margin-bottom: 20px;
+}
+
+#hoursLocation table {
+    width: 50%;
+    border-collapse: collapse;
+    background-color: #090909;
+    border: 1px solid #252525;
+}
+
+
+/* Ma'am if youre seeing this it means na nababaliw na ako sa pag code, please have mercy on me.*/
+#hoursLocation {
+    padding: 0 4px;
+}
+
+#hoursLocation h2 {
+    color: #f5f1e8;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+#hoursLocation h3 {
+    color: #055e13;
+    margin-bottom: 20px;
+}
+
+#hoursLocation table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #090909;
+    border: 1px solid #252525;
+    margin-bottom: 20px;
+}
+
+#hoursLocation caption {
+    display: none;
+}
+
+#hoursLocation th,
+#hoursLocation td {
+    padding: 18px 24px;
+    text-align: left;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+#hoursLocation thead {
+    background-color: #111;
+}
+
+#hoursLocation thead th {
+    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+#hoursLocation tbody th {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#hoursLocation tbody td {
+    color: #888;
+    font-size: 16px;
+}
+
+#hoursLocation tbody tr:last-child {
+    background-color: #160b0b;
+}
+
+#hoursLocation tbody tr:last-child th::after {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background-color: #055e13;
+}
+
+#hoursLocation tbody tr:last-child th,
+#hoursLocation tbody tr:last-child td {
+    border-bottom: none;
+}
+.reserve-button {
+    background-color: #055e13;
+    color: #fff;
+    border: 1px solid #055e13;
+}
+
+.menu-button {
+    color: #fff;
+    border: 1px solid #444;
+    background-color: #090909;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+address a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 0;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+legend {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    background-color: #090909;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 0.5em 1em;
+    margin-right: 1em;
+}
+
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+}
+footer nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+   
+}
+    </style>
+</body>
+</html>
